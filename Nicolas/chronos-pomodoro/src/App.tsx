@@ -1,8 +1,8 @@
-import { MeuFormulario } from "./components/MeuFormulario";
+import { FormularioAlunos } from "./components/FormularioAlunos";
 export default function App() {
   return (
     <>
-      <MeuFormulario />
+      < FormularioAlunos/>
    
     </>
   );
