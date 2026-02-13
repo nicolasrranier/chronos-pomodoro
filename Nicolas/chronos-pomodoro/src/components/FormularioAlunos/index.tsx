@@ -20,9 +20,15 @@ export function FormularioAlunos() {
 
   const [telefone, settelefone] = useState<string>("");
 
-  const [idade, setIdade] = useState<number >(0);
+  const [idade, setIdade] = useState<number>(0);
 
   const [endereco, setendereco] = useState<string>("");
+
+  const [serie, setserie] = useState<number>(0);
+
+  const [escola, setescola] = useState<string>("");
+
+  const [turno, setturno] = useState<string>("");
 
   //ESTADO PARA GUARDAR OS DADOS ENVIADOS NO FORMULÁRIO
   //ELE COMEÇA COMO NULO, POIS NADA FOI ENVIADO AINDA
@@ -34,6 +40,9 @@ export function FormularioAlunos() {
     telefone: string;
     idade: number;
     endereco: string;
+    serie: number;
+    escola: string;
+    turno: string;
   } | null>(null);
 
   //função executada quando o formulário é enviado
@@ -51,11 +60,14 @@ export function FormularioAlunos() {
       profissão: profissao,
       telefone: telefone,
       endereco: endereco,
+      serie: serie,
+      escola: escola,
+      turno: turno,
     });
 
     //LIMPA O CAMPO NOME APÓS O ENVIO
     setNome("");
-    //LIMPA O CAMPO email APÓS O ENVIO
+ 
     setEmail("");
 
     setProfissao("");
@@ -65,6 +77,12 @@ export function FormularioAlunos() {
     setSobrenome("");
 
     setendereco("");
+
+    setserie(0);
+
+    setescola("");
+
+    setturno ("");
   }
 
   //Retorno do JSX que será exibido na tela
@@ -87,8 +105,16 @@ export function FormularioAlunos() {
           value={sobrenome}
           onChange={(e) => setSobrenome(e.target.value)}
         />
+
+        <input
+          type="text"
+          placeholder="Escola"
+          value={escola}
+          onChange={(e) => setescola(e.target.value)}
+        />
+
         <h5>Idade:</h5>
-    
+
         <input
           type="number"
           placeholder="idade"
@@ -101,6 +127,20 @@ export function FormularioAlunos() {
           placeholder="Endereço"
           value={endereco}
           onChange={(e) => setendereco(e.target.value)}
+        />
+        <h5>Série:</h5>
+        <input
+          type="number"
+          placeholder="série"
+          value={serie}
+          onChange={(e) => setserie(Number(e.target.value))}
+        />
+
+        <input
+          type="text"
+          placeholder="turno"
+          value={turno}
+          onChange={(e) => setturno(e.target.value)}
         />
 
         <input
@@ -143,11 +183,23 @@ export function FormularioAlunos() {
           <p>
             <strong>Sobrenome:</strong> {enviarDados.sobrenome}
           </p>
+
+          <p>
+            <strong>Escola:</strong> {enviarDados.escola}
+          </p>
           <p>
             <strong>Idade:</strong> {enviarDados.idade}
           </p>
           <p>
             <strong>Endereco:</strong> {enviarDados.endereco}
+          </p>
+
+          <p>
+            <strong>Série:</strong> {enviarDados.serie}
+          </p>
+
+          <p>
+            <strong>Turno:</strong> {enviarDados.turno}
           </p>
           <p>
             <strong>Profissão:</strong> {enviarDados.profissão}
