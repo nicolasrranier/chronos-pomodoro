@@ -30,6 +30,8 @@ export function FormularioAlunos() {
 
   const [turno, setturno] = useState<string>("");
 
+  const [matricula, setMatricula] = useState<number>(0);
+
   //ESTADO PARA GUARDAR OS DADOS ENVIADOS NO FORMULÁRIO
   //ELE COMEÇA COMO NULO, POIS NADA FOI ENVIADO AINDA
   const [enviarDados, setEnviarDados] = useState<{
@@ -43,6 +45,7 @@ export function FormularioAlunos() {
     serie: number;
     escola: string;
     turno: string;
+    matricula: number;
   } | null>(null);
 
   //função executada quando o formulário é enviado
@@ -63,11 +66,12 @@ export function FormularioAlunos() {
       serie: serie,
       escola: escola,
       turno: turno,
+      matricula: matricula,
     });
 
     //LIMPA O CAMPO NOME APÓS O ENVIO
     setNome("");
- 
+
     setEmail("");
 
     setProfissao("");
@@ -82,7 +86,9 @@ export function FormularioAlunos() {
 
     setescola("");
 
-    setturno ("");
+    setturno("");
+
+    setMatricula(0);
   }
 
   //Retorno do JSX que será exibido na tela
@@ -128,6 +134,15 @@ export function FormularioAlunos() {
           value={endereco}
           onChange={(e) => setendereco(e.target.value)}
         />
+
+        <h5>Matrícula</h5>
+        <input
+          type="number"
+          placeholder="matrícula"
+          value={matricula}
+          onChange={(e) => setMatricula(Number(e.target.value))}
+        />
+
         <h5>Série:</h5>
         <input
           type="number"
@@ -192,6 +207,10 @@ export function FormularioAlunos() {
           </p>
           <p>
             <strong>Endereco:</strong> {enviarDados.endereco}
+          </p>
+
+          <p>
+            <strong>Matricula</strong> {enviarDados.matricula}
           </p>
 
           <p>
