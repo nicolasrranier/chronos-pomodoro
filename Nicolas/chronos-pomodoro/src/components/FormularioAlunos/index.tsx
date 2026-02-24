@@ -32,6 +32,8 @@ export function FormularioAlunos() {
 
   const [matricula, setMatricula] = useState<number>(0);
 
+  const[cordenador, setCordenador] = useState<string>("")
+
   //ESTADO PARA GUARDAR OS DADOS ENVIADOS NO FORMULÁRIO
   //ELE COMEÇA COMO NULO, POIS NADA FOI ENVIADO AINDA
   const [enviarDados, setEnviarDados] = useState<{
@@ -46,6 +48,7 @@ export function FormularioAlunos() {
     escola: string;
     turno: string;
     matricula: number;
+    cordenador: string;
   } | null>(null);
 
   //função executada quando o formulário é enviado
@@ -67,6 +70,7 @@ export function FormularioAlunos() {
       escola: escola,
       turno: turno,
       matricula: matricula,
+      cordenador: cordenador,
     });
 
     //LIMPA O CAMPO NOME APÓS O ENVIO
@@ -118,6 +122,16 @@ export function FormularioAlunos() {
           value={escola}
           onChange={(e) => setescola(e.target.value)}
         />
+
+<input type="text"
+placeholder="cordenador"
+value={cordenador}
+   onChange={(e) => setCordenador(e.target.value)}
+
+/>
+
+
+
 
         <h5>Idade:</h5>
 
@@ -201,6 +215,10 @@ export function FormularioAlunos() {
 
           <p>
             <strong>Escola:</strong> {enviarDados.escola}
+          </p>
+
+          <p>
+            <strong>Cordenador:</strong> {enviarDados.cordenador}
           </p>
           <p>
             <strong>Idade:</strong> {enviarDados.idade}
