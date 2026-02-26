@@ -8,7 +8,7 @@ import "./styles.css";
  */
 export function FormularioAlunos() {
   //ESTADO PARA ARMAZENAR O NOME DIGITADO NO INPUT
-  const [nome, setNome] = useState<string>("");
+  const [nome, setNome] = useState<string>("Nicolas");
 
   //ESTADO PARA ARMAZENAR O email DIGITADO NO INPUT
   const [email, setEmail] = useState<string>("");
@@ -32,7 +32,7 @@ export function FormularioAlunos() {
 
   const [matricula, setMatricula] = useState<number>(0);
 
-  const[cordenador, setCordenador] = useState<string>("")
+  const [cordenador, setCordenador] = useState<string>("");
 
   //ESTADO PARA GUARDAR OS DADOS ENVIADOS NO FORMULÁRIO
   //ELE COMEÇA COMO NULO, POIS NADA FOI ENVIADO AINDA
@@ -103,7 +103,8 @@ export function FormularioAlunos() {
 
       {/*Formulário onde recebe também a função enviarFormulario*/}
       <form onSubmit={enviarFormulario}>
-        <input
+        <input 
+        disabled
           type="text" //TIPO DO INPUT
           placeholder="Nome" //TEXTO EXIBIDO QUANDO ESTÁ VAZIO
           value={nome} //VALOR CONTROLADO
@@ -123,15 +124,12 @@ export function FormularioAlunos() {
           onChange={(e) => setescola(e.target.value)}
         />
 
-<input type="text"
-placeholder="cordenador"
-value={cordenador}
-   onChange={(e) => setCordenador(e.target.value)}
-
-/>
-
-
-
+        <input
+          type="text"
+          placeholder="cordenador"
+          value={cordenador}
+          onChange={(e) => setCordenador(e.target.value)}
+        />
 
         <h5>Idade:</h5>
 
