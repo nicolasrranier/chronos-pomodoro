@@ -5,8 +5,21 @@ import "./styles/theme.css";
 export function App() {
   return (
     <>
-    
-      <Container />
+      <Container>
+        <section>logo</section>
+      </Container>
+
+      <Container>
+        <section>menu</section>
+      </Container>
+
+      <Container>
+        <section>formulario</section>
+      </Container>
+
+      <Container>
+        <section>rodape</section>
+      </Container>
     </>
   );
 }
