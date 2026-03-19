@@ -1,8 +1,12 @@
-import { MercadoDois } from "./components/MercadoDois";
-export default function App() {
+import { Container } from "./components/container";
+import "./styles/global.css";
+import "./styles/theme.css";
+
+export function App() {
   return (
     <>
-      <MercadoDois />
+    
+      <Container />
     </>
   );
 }

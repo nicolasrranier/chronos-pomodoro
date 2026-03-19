@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import { TrashIcon } from "lucide-react";
 
 type Produto = {
   insumo: string;
@@ -33,7 +34,7 @@ export function MercadoDois() {
   const total = produtos.reduce((soma, produto) => soma + produto.preco, 0);
   return (
     <div className="container">
-      <h2>Mercado 🛒</h2>
+      <h2>Mercado 🛒🍶 </h2>
 
       <form onSubmit={adicionarProduto}>
         <input
@@ -50,7 +51,9 @@ export function MercadoDois() {
           onChange={(e) => setPreco(e.target.value)}
         />
 
-        <button type="submit">Adicionar</button>
+        <button type="submit">
+          <TrashIcon />
+        </button>
       </form>
 
       <div className="lista">
